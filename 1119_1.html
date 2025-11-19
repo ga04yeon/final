@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiqui Taca Text</title>
+  <style>
+    @font-face {
+      font-family: "TiquiTaca";
+      src: url("TiquiTaca-Regular.otf") format("opentype");
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #F44377; /* 첫 화면 배경 */
+      font-family: sans-serif;
+    }
+
+    /* SVG 컨테이너 */
+    #screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 1s ease-in-out;
+      cursor: pointer;
+    }
+
+    svg text {
+      font-family: "TiquiTaca", sans-serif;
+      text-anchor: middle;
+      font-size: 200px;
+      fill: white;
+    }
+
+    .pink {
+      fill: #F44377 !important;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* 다음 화면 */
+    #nextScreen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      transform: translateY(100vh); /* 처음엔 화면 아래로 시작 */
+      transition: transform 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 첫 화면 -->
+<div id="screen">
+  <svg width="1728" height="1117" viewBox="0 0 1728 1117" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0)">
+      <rect width="1728" height="1117" fill="#76D048"/>
+      <rect width="115" height="1117" fill="#E2E71B"/>
+      <rect x="230" width="116" height="1117" fill="#E2E71B"/>
+      <rect x="461" width="115" height="1117" fill="#E2E71B"/>
+      <rect x="691" width="115" height="1117" fill="#E2E71B"/>
+      <rect x="922" width="115" height="1117" fill="#E2E71B"/>
+      <rect x="1152" width="115" height="1117" fill="#E2E71B"/>
+      <rect x="1382" width="116" height="1117" fill="#E2E71B"/>
+      <rect x="1613" width="115" height="1117" fill="#E2E71B"/>
+      <ellipse cx="864" cy="558.5" rx="785" ry="507.5" fill="#F44377"/>
+      <path d="M864 97C1062.17 97 1241.39 148.883 1370.95 232.556C1500.54 316.254 1580 431.408 1580 558C1580 684.592 1500.54 799.746 1370.95 883.444C1241.39 967.117 1062.17 1019 864 1019C665.832 1019 486.61 967.117 357.053 883.444C227.455 799.746 148 684.592 148 558C148 431.408 227.455 316.254 357.053 232.556C486.61 148.883 665.832 97 864 97Z" stroke="#F5CAE8" stroke-width="8"/>
+    </g>
+
+    <text class="pink" x="57.5" y="100">+</text>
+    <text class="pink" x="57.5" y="350">+</text>
+    <text class="pink" x="57.5" y="600">+</text>
+    <text class="pink" x="57.5" y="850">+</text>
+    <text class="pink" x="57.5" y="1100">+</text>
+
+    <text class="pink" x="1670.5" y="100">+</text>
+    <text class="pink" x="1670.5" y="350">+</text>
+    <text class="pink" x="1670.5" y="600">+</text>
+    <text class="pink" x="1670.5" y="850">+</text>
+    <text class="pink" x="1670.5" y="1100">+</text>
+
+    <text x="864" y="430">The Courage</text>
+    <text x="864" y="630">to</text>
+    <text x="864" y="830">Fall Apart</text>
+
+    <defs>
+      <clipPath id="clip0">
+        <rect width="1728" height="1117"/>
+      </clipPath>
+    </defs>
+  </svg>
+</div>
+
+<!-- 다음 화면 -->
+<div id="nextScreen">
+  다음 화면!
+</div>
+
+<script>
+  const screen = document.getElementById('screen');
+  const nextScreen = document.getElementById('nextScreen');
+
+  screen.addEventListener('click', () => {
+    screen.style.transform = 'translateY(-100vh)'; // 첫 화면 위로
+    nextScreen.style.transform = 'translateY(0)';  // 다음 화면 올라오기
+  });
+</script>
+
+</body>
+</html>
